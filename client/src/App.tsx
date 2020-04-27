@@ -4,13 +4,25 @@ import './App.scss';
 import 'bulma/css/bulma.min.css';
 import './components/navbar/Navbar';
 
-function App() {
-    return (
-        <div className="App">
-            <Navbar isLoggedIn={false} account={{}} />
-            <h1>Crossing Clan</h1>
-        </div>
-    );
+export interface AppState {
+    isLoggedIn: boolean;
+    account: {};
+}
+
+class App extends React.Component<{}, AppState> {
+    state = {
+        isLoggedIn: false,
+        account: {},
+    };
+
+    render() {
+        return (
+            <Navbar
+                isLoggedIn={this.state.isLoggedIn}
+                account={this.state.account}
+            />
+        );
+    }
 }
 
 export default App;
