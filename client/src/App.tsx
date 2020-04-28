@@ -1,4 +1,5 @@
 import React from 'react';
+import Account from './interfaces/Account';
 import Navbar from './components/navbar/Navbar';
 import AccountModal from './components/modal/AccountModal';
 import LoginModal from './components/modal/LoginModal';
@@ -8,7 +9,7 @@ import 'bulma/css/bulma.min.css';
 import './components/navbar/Navbar';
 
 export interface AppState {
-    account: {};
+    account: Account;
     isLoggedIn: boolean;
     modalLogin: boolean;
     modalMe: boolean;
@@ -17,7 +18,21 @@ export interface AppState {
 
 class App extends React.Component<{}, AppState> {
     state = {
-        account: {},
+        account: {
+            acName: 'Test Name',
+            acIsland: 'Test Village',
+            turnipData: {
+                turnipBuyPrice: 90,
+                turnipSellPrices: [
+                    [85, 80],
+                    [75, 70],
+                    [65, 60],
+                    [55, 50],
+                    [45, 40],
+                    [35, 30],
+                ],
+            },
+        },
         isLoggedIn: false,
         modalLogin: false,
         modalMe: false,
@@ -37,6 +52,7 @@ class App extends React.Component<{}, AppState> {
                 <AccountModal
                     isActive={this.state.modalMe}
                     toggleMe={this.toggleMe}
+                    account={this.state.account}
                 />
                 <LoginModal
                     isActive={this.state.modalLogin}
