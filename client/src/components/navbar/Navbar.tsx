@@ -1,9 +1,15 @@
 import * as React from 'react';
+import Login from './login/Login';
+import Me from './me/Me';
+import Signup from './signup/Signup';
 import './Navbar.scss';
 
 export interface NavbarProps {
-    isLoggedIn: boolean;
     account: {};
+    isLoggedIn: boolean;
+    toggleLogin: Function;
+    toggleMe: Function;
+    toggleSignup: Function;
 }
 
 class Navbar extends React.Component<NavbarProps, {}> {
@@ -34,11 +40,14 @@ class Navbar extends React.Component<NavbarProps, {}> {
         );
     }
 
-    renderMenu() {
+    private renderMenu() {
         return this.props.isLoggedIn ? (
-            <span>Logged In</span>
+            <Me account={this.props.account} toggleMe={this.props.toggleMe} />
         ) : (
-            <span>Not Logged In</span>
+            <React.Fragment>
+                <Login toggleLogin={this.props.toggleLogin} />
+                <Signup toggleSignup={this.props.toggleSignup} />
+            </React.Fragment>
         );
     }
 }
