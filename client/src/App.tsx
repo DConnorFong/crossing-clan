@@ -7,18 +7,18 @@ import './components/navbar/Navbar';
 export interface AppState {
     account: {};
     isLoggedIn: boolean;
-    navLogin: boolean;
-    navMe: boolean;
-    navSignup: boolean;
+    modalLogin: boolean;
+    modalMe: boolean;
+    modalSignup: boolean;
 }
 
 class App extends React.Component<{}, AppState> {
     state = {
         isLoggedIn: true,
         account: {},
-        navLogin: false,
-        navMe: false,
-        navSignup: false,
+        modalLogin: false,
+        modalMe: false,
+        modalSignup: false,
     };
 
     render() {
@@ -27,7 +27,7 @@ class App extends React.Component<{}, AppState> {
                 isLoggedIn={this.state.isLoggedIn}
                 account={this.state.account}
                 toggleLogin={this.toggleLogin}
-                toggleMe={this.toggleMe}
+                toggleAccount={this.toggleAccount}
                 toggleSignup={this.toggleSignup}
             />
         );
@@ -37,8 +37,8 @@ class App extends React.Component<{}, AppState> {
         alert('Toggle Login Pressed');
     }
 
-    public toggleMe() {
-        alert('Toggle Me Pressed');
+    public toggleAccount() {
+        alert('Toggle Account Pressed');
     }
 
     public toggleSignup() {
