@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import AccountModal from './components/modal/AccountModal';
 import LoginModal from './components/modal/LoginModal';
 import SignupModal from './components/modal/SignupModal';
+import TurnipInput from './components/input/TurnipInput';
 import './App.scss';
 import 'bulma/css/bulma.min.css';
 import './components/navbar/Navbar';
@@ -69,6 +70,7 @@ class App extends React.Component<{}, AppState> {
                     toggleMe={this.toggleMe}
                     toggleSignup={this.toggleSignup}
                 />
+                <TurnipInput turnipData={this.state.account.turnipData} />
             </React.Fragment>
         );
     }
