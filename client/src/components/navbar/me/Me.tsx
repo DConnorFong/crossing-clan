@@ -1,17 +1,17 @@
 import * as React from 'react';
 
-export interface AccountProps {
+export interface MeProps {
     account: {};
-    toggleAccount: Function;
+    toggleMe: Function;
 }
 
-class Me extends React.Component<AccountProps, {}> {
+class Me extends React.Component<MeProps, {}> {
     render() {
         return (
             <button
                 className="button"
                 onClick={() => {
-                    this.props.toggleAccount();
+                    this.props.toggleMe();
                 }}
             >
                 Me
@@ -20,4 +20,4 @@ class Me extends React.Component<AccountProps, {}> {
     }
 }
 
-export default Account;
+export default Me;
